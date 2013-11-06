@@ -27,7 +27,7 @@
 ### ADS-LD Output File: '.\Output\RTOSDemo.axf'
 ### ADS-LD Command File: '.\Output\RTOSDemo.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile '.\Output\RTOSDemo.lnp', Handle=0x00000364
+### Creating CmdFile '.\Output\RTOSDemo.lnp', Handle=0x00000D3C
 ### Writing '.lnp' file
 ### ADS-LD Command file '.\Output\RTOSDemo.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

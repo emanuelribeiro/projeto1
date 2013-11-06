@@ -7,8 +7,6 @@
 
 #include "stm32f4_discovery_lis302dl.h"
 
-#define DOUBLECLICK_Z                    ((uint8_t)0x60)
-#define SINGLECLICK_Z                    ((uint8_t)0x50)
 
 /* Private function prototypes -----------------------------------------------*/
 static void Mems_Config(void);
@@ -32,7 +30,7 @@ static void Mems_Config(void)
   
   LIS302DL_InitTypeDef  LIS302DL_InitStruct;
   LIS302DL_InterruptConfigTypeDef LIS302DL_InterruptStruct;  
-  
+	
   /* Set configuration of LIS302DL*/
   LIS302DL_InitStruct.Power_Mode = LIS302DL_LOWPOWERMODE_ACTIVE;
   LIS302DL_InitStruct.Output_DataRate = LIS302DL_DATARATE_100;
@@ -48,17 +46,17 @@ static void Mems_Config(void)
   
   /* Configure Interrupt control register: enable Click interrupt on INT1 and
      INT2 on Z axis high event */
-  ctrl = 0x1F;
+  ctrl = 0x3F;
   LIS302DL_Write(&ctrl, LIS302DL_CTRL_REG3_ADDR, 1);
   
   /* Enable Interrupt generation on click on Z axis */
- /* ctrl = 0x45;
+/*  ctrl = 0x45;
   LIS302DL_Write(&ctrl, LIS302DL_CLICK_CFG_REG_ADDR, 1);
-  */
+ */ 
   /* Configure Click Threshold on X/Y axis (10 x 0.5g) */
-  ctrl = 0xAA;
+  ctrl = 0x77;
   LIS302DL_Write(&ctrl, LIS302DL_CLICK_THSY_X_REG_ADDR, 1);
-/*  
+
   /* Configure Click Threshold on Z axis (10 x 0.5g) */
 /*  ctrl = 0x0A;
   LIS302DL_Write(&ctrl, LIS302DL_CLICK_THSZ_REG_ADDR, 1);
@@ -76,9 +74,9 @@ static void Mems_Config(void)
   LIS302DL_Write(&ctrl, LIS302DL_CLICK_LATENCY_REG_ADDR, 1);
   
   /* Configure Click Window */
-/*  ctrl = 0x7F;
+  ctrl = 0x7F;
   LIS302DL_Write(&ctrl, LIS302DL_CLICK_WINDOW_REG_ADDR, 1);   
-*/}
+}
 
 static void EXTILine_Config(void)
 {
@@ -136,7 +134,9 @@ static void EXTILine_Config(void)
 uint32_t LIS302DL_TIMEOUT_UserCallback(void)
 {
   /* MEMS Accelerometer Timeout error occured */
-  while (1);
+  while (1) {
+		GPIO_SetBits(GPIOD, GPIO_Pin_13);
+	}
 }
 
 void Delay(__IO uint32_t nTime)
@@ -154,10 +154,10 @@ int main()
 	prvSetupPeripherals();
 	
 	LIS302DL_Read(&ClickReg, LIS302DL_CLICK_SRC_REG_ADDR, 1);
-//	LIS302DL_Read(read, LIS302DL_OUT_X_ADDR, 3);
+	LIS302DL_Read(read, LIS302DL_OUT_X_ADDR, 3);
                   
-//  XOffset = read[0];
-// YOffset = read[2];
+  XOffset = read[0];
+	YOffset = read[2];
 	
 	while(1) {
 		/* Read click status register */
@@ -207,7 +207,7 @@ void EXTI0_IRQHandler(void)
 				GPIO_ToggleBits(GPIOD, GPIO_Pin_14);
 			}
 		}
-		LIS302DL_Read(&ClickReg, LIS302DL_CLICK_SRC_REG_ADDR, 1);
+//		LIS302DL_Read(&ClickReg, LIS302DL_CLICK_SRC_REG_ADDR, 1);
     /* Clear the EXTI line 1 pending bit */
     EXTI_ClearITPendingBit(EXTI_Line0);
   }

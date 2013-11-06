@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Output\RTOSDemo.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Output\RTOSDemo.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 24]: Last Updated: Wed Nov 06 10:37:13 2013
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 24]: Last Updated: Wed Nov 06 14:14:10 2013
 <BR><P>
 <H3>Maximum Stack Usage =        108 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -539,7 +539,8 @@ Global Symbols
 <P><STRONG><a name="[d2]"></a>GPIO_ReadOutputData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text), UNUSED)
 
 <P><STRONG><a name="[71]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LIS302DL_Read
+<BR><BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LIS302DL_TIMEOUT_UserCallback
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LIS302DL_Read
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LIS302DL_Write
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LIS302DL_LowLevel_Init
 </UL>
@@ -1192,13 +1193,15 @@ Global Symbols
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeFromISR
 </UL>
 
-<P><STRONG><a name="[6b]"></a>LIS302DL_TIMEOUT_UserCallback</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, main.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LIS302DL_SendByte
+<P><STRONG><a name="[6b]"></a>LIS302DL_TIMEOUT_UserCallback</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, main.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+</UL>
+<BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LIS302DL_SendByte
 </UL>
 
 <P><STRONG><a name="[11a]"></a>Delay</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
 
-<P><STRONG><a name="[5c]"></a>main</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, main.o(.text))
+<P><STRONG><a name="[5c]"></a>main</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = main &rArr; prvSetupHardware &rArr; Mems_Config &rArr; LIS302DL_Init &rArr; LIS302DL_LowLevel_Init &rArr; GPIO_PinAFConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSetupHardware
@@ -1209,7 +1212,7 @@ Global Symbols
 </UL>
 <P><STRONG><a name="[11b]"></a>fputc</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, main.o(.text), UNUSED)
 
-<P><STRONG><a name="[10]"></a>EXTI0_IRQHandler</STRONG> (Thumb, 148 bytes, Stack size 8 bytes, main.o(.text))
+<P><STRONG><a name="[10]"></a>EXTI0_IRQHandler</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = EXTI0_IRQHandler &rArr; LIS302DL_Read &rArr; LIS302DL_SendByte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_ClearITPendingBit
@@ -1352,7 +1355,7 @@ Local Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
 </UL>
 
-<P><STRONG><a name="[b5]"></a>Mems_Config</STRONG> (Thumb, 116 bytes, Stack size 24 bytes, main.o(.text))
+<P><STRONG><a name="[b5]"></a>Mems_Config</STRONG> (Thumb, 130 bytes, Stack size 24 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = Mems_Config &rArr; LIS302DL_Init &rArr; LIS302DL_LowLevel_Init &rArr; GPIO_PinAFConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LIS302DL_InterruptConfig
