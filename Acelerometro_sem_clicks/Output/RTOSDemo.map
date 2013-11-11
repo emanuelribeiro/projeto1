@@ -54,9 +54,8 @@ Section Cross References
     main.o(.text) refers to stm32f4xx_rcc.o(.text) for RCC_AHB1PeriphClockCmd
     main.o(.text) refers to stm32f4xx_gpio.o(.text) for GPIO_Init
     main.o(.text) refers to stm32f4xx_syscfg.o(.text) for SYSCFG_EXTILineConfig
-    main.o(.text) refers to stm32f4xx_exti.o(.text) for EXTI_Init
     main.o(.text) refers to misc.o(.text) for NVIC_PriorityGroupConfig
-    main.o(.text) refers to main.o(.data) for TimingDelay
+    main.o(.text) refers to stm32f4xx_exti.o(.text) for EXTI_Init
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
@@ -87,8 +86,8 @@ Removing Unused input sections from the image.
     Removing stm32f4xx_usart.o(.emb_text), (8 bytes).
     Removing stm32f4xx_usart.o(.text), (1050 bytes).
     Removing stm32f4_discovery_lis302dl.o(.emb_text), (8 bytes).
-    Removing stm32f4xx_spi.o(.emb_text), (8 bytes).
     Removing stm32f4xx_exti.o(.emb_text), (8 bytes).
+    Removing stm32f4xx_spi.o(.emb_text), (8 bytes).
     Removing queue.o(.text), (1632 bytes).
     Removing croutine.o(.text), (752 bytes).
     Removing croutine.o(.bss), (100 bytes).
@@ -176,8 +175,8 @@ Image Symbol Table
     .text                                    0x08000dc4   Section        0  stm32f4_discovery_lis302dl.o(.text)
     LIS302DL_SendByte                        0x08000dc5   Thumb Code   106  stm32f4_discovery_lis302dl.o(.text)
     LIS302DL_LowLevel_Init                   0x08000e69   Thumb Code   294  stm32f4_discovery_lis302dl.o(.text)
-    .text                                    0x08001188   Section        0  stm32f4xx_spi.o(.text)
-    .text                                    0x0800157c   Section        0  stm32f4xx_exti.o(.text)
+    .text                                    0x08001188   Section        0  stm32f4xx_exti.o(.text)
+    .text                                    0x080012a4   Section        0  stm32f4xx_spi.o(.text)
     .text                                    0x08001698   Section        0  tasks.o(.text)
     prvInitialiseTaskLists                   0x08001699   Thumb Code    70  tasks.o(.text)
     prvInitialiseTCBVariables                0x080016df   Thumb Code    84  tasks.o(.text)
@@ -192,14 +191,14 @@ Image Symbol Table
     .text                                    0x08002370   Section        0  port.o(.text)
     .text                                    0x0800251c   Section        0  main.o(.text)
     Mems_Config                              0x0800251d   Thumb Code   132  main.o(.text)
-    EXTILine_Config                          0x080025a1   Thumb Code   164  main.o(.text)
+    EXTILine_Config                          0x080025a1   Thumb Code   194  main.o(.text)
     prvSetupPeripherals                      0x08002667   Thumb Code     2  main.o(.text)
     prvSetupHardware                         0x08002669   Thumb Code    12  main.o(.text)
-    .text                                    0x08002764   Section        0  memseta.o(.text)
-    .text                                    0x08002788   Section       36  init.o(.text)
-    i.__scatterload_copy                     0x080027ac   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x080027ba   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x080027bc   Section       14  handlers.o(i.__scatterload_zeroinit)
+    .text                                    0x08002770   Section        0  memseta.o(.text)
+    .text                                    0x08002794   Section       36  init.o(.text)
+    i.__scatterload_copy                     0x080027b8   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x080027c6   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x080027c8   Section       14  handlers.o(i.__scatterload_zeroinit)
     .data                                    0x20000000   Section       20  system_stm32f4xx.o(.data)
     .data                                    0x20000014   Section       16  stm32f4xx_rcc.o(.data)
     APBAHBPrescTable                         0x20000014   Data          16  stm32f4xx_rcc.o(.data)
@@ -227,17 +226,16 @@ Image Symbol Table
     uxCriticalNesting                        0x20000078   Data           4  port.o(.data)
     ucMaxSysCallPriority                     0x2000007c   Data           1  port.o(.data)
     ulMaxPRIGROUPValue                       0x20000080   Data           4  port.o(.data)
-    .data                                    0x20000084   Section        8  main.o(.data)
-    .bss                                     0x2000008c   Section      200  tasks.o(.bss)
-    pxReadyTasksLists                        0x2000008c   Data         100  tasks.o(.bss)
-    xDelayedTaskList1                        0x200000f0   Data          20  tasks.o(.bss)
-    xDelayedTaskList2                        0x20000104   Data          20  tasks.o(.bss)
-    xPendingReadyList                        0x20000118   Data          20  tasks.o(.bss)
-    xTasksWaitingTermination                 0x2000012c   Data          20  tasks.o(.bss)
-    xSuspendedTaskList                       0x20000140   Data          20  tasks.o(.bss)
-    .bss                                     0x20000154   Section    76800  heap_2.o(.bss)
-    ucHeap                                   0x20000154   Data       76800  heap_2.o(.bss)
-    STACK                                    0x20012d58   Section     1024  startup_stm32f4xx.o(STACK)
+    .bss                                     0x20000084   Section      200  tasks.o(.bss)
+    pxReadyTasksLists                        0x20000084   Data         100  tasks.o(.bss)
+    xDelayedTaskList1                        0x200000e8   Data          20  tasks.o(.bss)
+    xDelayedTaskList2                        0x200000fc   Data          20  tasks.o(.bss)
+    xPendingReadyList                        0x20000110   Data          20  tasks.o(.bss)
+    xTasksWaitingTermination                 0x20000124   Data          20  tasks.o(.bss)
+    xSuspendedTaskList                       0x20000138   Data          20  tasks.o(.bss)
+    .bss                                     0x2000014c   Section    76800  heap_2.o(.bss)
+    ucHeap                                   0x2000014c   Data       76800  heap_2.o(.bss)
+    STACK                                    0x20012d50   Section     1024  startup_stm32f4xx.o(STACK)
 
     Global Symbols
 
@@ -311,7 +309,6 @@ Image Symbol Table
     ETH_IRQHandler                           0x0800034b   Thumb Code     0  startup_stm32f4xx.o(.text)
     ETH_WKUP_IRQHandler                      0x0800034b   Thumb Code     0  startup_stm32f4xx.o(.text)
     EXTI15_10_IRQHandler                     0x0800034b   Thumb Code     0  startup_stm32f4xx.o(.text)
-    EXTI1_IRQHandler                         0x0800034b   Thumb Code     0  startup_stm32f4xx.o(.text)
     EXTI2_IRQHandler                         0x0800034b   Thumb Code     0  startup_stm32f4xx.o(.text)
     EXTI3_IRQHandler                         0x0800034b   Thumb Code     0  startup_stm32f4xx.o(.text)
     EXTI4_IRQHandler                         0x0800034b   Thumb Code     0  startup_stm32f4xx.o(.text)
@@ -438,39 +435,39 @@ Image Symbol Table
     LIS302DL_FullScaleCmd                    0x080010b9   Thumb Code    44  stm32f4_discovery_lis302dl.o(.text)
     LIS302DL_RebootCmd                       0x080010e5   Thumb Code    34  stm32f4_discovery_lis302dl.o(.text)
     LIS302DL_ReadACC                         0x08001107   Thumb Code   112  stm32f4_discovery_lis302dl.o(.text)
-    SPI_I2S_DeInit                           0x08001189   Thumb Code    76  stm32f4xx_spi.o(.text)
-    SPI_Init                                 0x080011d5   Thumb Code    60  stm32f4xx_spi.o(.text)
-    I2S_Init                                 0x08001211   Thumb Code   346  stm32f4xx_spi.o(.text)
-    SPI_StructInit                           0x0800136b   Thumb Code    24  stm32f4xx_spi.o(.text)
-    I2S_StructInit                           0x08001383   Thumb Code    20  stm32f4xx_spi.o(.text)
-    SPI_Cmd                                  0x08001397   Thumb Code    24  stm32f4xx_spi.o(.text)
-    I2S_Cmd                                  0x080013af   Thumb Code    24  stm32f4xx_spi.o(.text)
-    SPI_DataSizeConfig                       0x080013c7   Thumb Code    18  stm32f4xx_spi.o(.text)
-    SPI_BiDirectionalLineConfig              0x080013d9   Thumb Code    28  stm32f4xx_spi.o(.text)
-    SPI_NSSInternalSoftwareConfig            0x080013f5   Thumb Code    30  stm32f4xx_spi.o(.text)
-    SPI_SSOutputCmd                          0x08001413   Thumb Code    24  stm32f4xx_spi.o(.text)
-    SPI_TIModeCmd                            0x0800142b   Thumb Code    24  stm32f4xx_spi.o(.text)
-    I2S_FullDuplexConfig                     0x08001443   Thumb Code    80  stm32f4xx_spi.o(.text)
-    SPI_I2S_ReceiveData                      0x08001493   Thumb Code     6  stm32f4xx_spi.o(.text)
-    SPI_I2S_SendData                         0x08001499   Thumb Code     4  stm32f4xx_spi.o(.text)
-    SPI_CalculateCRC                         0x0800149d   Thumb Code    24  stm32f4xx_spi.o(.text)
-    SPI_TransmitCRC                          0x080014b5   Thumb Code    10  stm32f4xx_spi.o(.text)
-    SPI_GetCRC                               0x080014bf   Thumb Code    16  stm32f4xx_spi.o(.text)
-    SPI_GetCRCPolynomial                     0x080014cf   Thumb Code     6  stm32f4xx_spi.o(.text)
-    SPI_I2S_DMACmd                           0x080014d5   Thumb Code    18  stm32f4xx_spi.o(.text)
-    SPI_I2S_ITConfig                         0x080014e7   Thumb Code    32  stm32f4xx_spi.o(.text)
-    SPI_I2S_GetFlagStatus                    0x08001507   Thumb Code    18  stm32f4xx_spi.o(.text)
-    SPI_I2S_ClearFlag                        0x08001519   Thumb Code     6  stm32f4xx_spi.o(.text)
-    SPI_I2S_GetITStatus                      0x0800151f   Thumb Code    52  stm32f4xx_spi.o(.text)
-    SPI_I2S_ClearITPendingBit                0x08001553   Thumb Code    20  stm32f4xx_spi.o(.text)
-    EXTI_DeInit                              0x0800157d   Thumb Code    28  stm32f4xx_exti.o(.text)
-    EXTI_Init                                0x08001599   Thumb Code   142  stm32f4xx_exti.o(.text)
-    EXTI_StructInit                          0x08001627   Thumb Code    16  stm32f4xx_exti.o(.text)
-    EXTI_GenerateSWInterrupt                 0x08001637   Thumb Code    16  stm32f4xx_exti.o(.text)
-    EXTI_GetFlagStatus                       0x08001647   Thumb Code    22  stm32f4xx_exti.o(.text)
-    EXTI_ClearFlag                           0x0800165d   Thumb Code     8  stm32f4xx_exti.o(.text)
-    EXTI_GetITStatus                         0x08001665   Thumb Code    34  stm32f4xx_exti.o(.text)
-    EXTI_ClearITPendingBit                   0x08001687   Thumb Code     8  stm32f4xx_exti.o(.text)
+    EXTI_DeInit                              0x08001189   Thumb Code    28  stm32f4xx_exti.o(.text)
+    EXTI_Init                                0x080011a5   Thumb Code   142  stm32f4xx_exti.o(.text)
+    EXTI_StructInit                          0x08001233   Thumb Code    16  stm32f4xx_exti.o(.text)
+    EXTI_GenerateSWInterrupt                 0x08001243   Thumb Code    16  stm32f4xx_exti.o(.text)
+    EXTI_GetFlagStatus                       0x08001253   Thumb Code    22  stm32f4xx_exti.o(.text)
+    EXTI_ClearFlag                           0x08001269   Thumb Code     8  stm32f4xx_exti.o(.text)
+    EXTI_GetITStatus                         0x08001271   Thumb Code    34  stm32f4xx_exti.o(.text)
+    EXTI_ClearITPendingBit                   0x08001293   Thumb Code     8  stm32f4xx_exti.o(.text)
+    SPI_I2S_DeInit                           0x080012a5   Thumb Code    76  stm32f4xx_spi.o(.text)
+    SPI_Init                                 0x080012f1   Thumb Code    60  stm32f4xx_spi.o(.text)
+    I2S_Init                                 0x0800132d   Thumb Code   346  stm32f4xx_spi.o(.text)
+    SPI_StructInit                           0x08001487   Thumb Code    24  stm32f4xx_spi.o(.text)
+    I2S_StructInit                           0x0800149f   Thumb Code    20  stm32f4xx_spi.o(.text)
+    SPI_Cmd                                  0x080014b3   Thumb Code    24  stm32f4xx_spi.o(.text)
+    I2S_Cmd                                  0x080014cb   Thumb Code    24  stm32f4xx_spi.o(.text)
+    SPI_DataSizeConfig                       0x080014e3   Thumb Code    18  stm32f4xx_spi.o(.text)
+    SPI_BiDirectionalLineConfig              0x080014f5   Thumb Code    28  stm32f4xx_spi.o(.text)
+    SPI_NSSInternalSoftwareConfig            0x08001511   Thumb Code    30  stm32f4xx_spi.o(.text)
+    SPI_SSOutputCmd                          0x0800152f   Thumb Code    24  stm32f4xx_spi.o(.text)
+    SPI_TIModeCmd                            0x08001547   Thumb Code    24  stm32f4xx_spi.o(.text)
+    I2S_FullDuplexConfig                     0x0800155f   Thumb Code    80  stm32f4xx_spi.o(.text)
+    SPI_I2S_ReceiveData                      0x080015af   Thumb Code     6  stm32f4xx_spi.o(.text)
+    SPI_I2S_SendData                         0x080015b5   Thumb Code     4  stm32f4xx_spi.o(.text)
+    SPI_CalculateCRC                         0x080015b9   Thumb Code    24  stm32f4xx_spi.o(.text)
+    SPI_TransmitCRC                          0x080015d1   Thumb Code    10  stm32f4xx_spi.o(.text)
+    SPI_GetCRC                               0x080015db   Thumb Code    16  stm32f4xx_spi.o(.text)
+    SPI_GetCRCPolynomial                     0x080015eb   Thumb Code     6  stm32f4xx_spi.o(.text)
+    SPI_I2S_DMACmd                           0x080015f1   Thumb Code    18  stm32f4xx_spi.o(.text)
+    SPI_I2S_ITConfig                         0x08001603   Thumb Code    32  stm32f4xx_spi.o(.text)
+    SPI_I2S_GetFlagStatus                    0x08001623   Thumb Code    18  stm32f4xx_spi.o(.text)
+    SPI_I2S_ClearFlag                        0x08001635   Thumb Code     6  stm32f4xx_spi.o(.text)
+    SPI_I2S_GetITStatus                      0x0800163b   Thumb Code    52  stm32f4xx_spi.o(.text)
+    SPI_I2S_ClearITPendingBit                0x0800166f   Thumb Code    20  stm32f4xx_spi.o(.text)
     xTaskGenericCreate                       0x0800176d   Thumb Code   280  tasks.o(.text)
     vTaskDelete                              0x08001885   Thumb Code    90  tasks.o(.text)
     xTaskIncrementTick                       0x080018df   Thumb Code   296  tasks.o(.text)
@@ -513,35 +510,30 @@ Image Symbol Table
     vPortExitCritical                        0x08002477   Thumb Code    26  port.o(.text)
     SysTick_Handler                          0x08002491   Thumb Code    30  port.o(.text)
     vPortValidateInterruptPriority           0x080024af   Thumb Code    82  port.o(.text)
-    LIS302DL_TIMEOUT_UserCallback            0x08002645   Thumb Code    14  main.o(.text)
-    Delay                                    0x08002653   Thumb Code    20  main.o(.text)
-    main                                     0x08002675   Thumb Code    58  main.o(.text)
-    fputc                                    0x080026af   Thumb Code    60  main.o(.text)
-    EXTI0_IRQHandler                         0x080026eb   Thumb Code    90  main.o(.text)
-    __aeabi_memset                           0x08002765   Thumb Code    14  memseta.o(.text)
-    __aeabi_memset4                          0x08002765   Thumb Code     0  memseta.o(.text)
-    __aeabi_memset8                          0x08002765   Thumb Code     0  memseta.o(.text)
-    __aeabi_memclr                           0x08002773   Thumb Code     4  memseta.o(.text)
-    __aeabi_memclr4                          0x08002773   Thumb Code     0  memseta.o(.text)
-    __aeabi_memclr8                          0x08002773   Thumb Code     0  memseta.o(.text)
-    _memset$wrapper                          0x08002777   Thumb Code    18  memseta.o(.text)
-    __scatterload                            0x08002789   Thumb Code    28  init.o(.text)
-    __scatterload_rt2                        0x08002789   Thumb Code     0  init.o(.text)
-    __scatterload_copy                       0x080027ad   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x080027bb   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x080027bd   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    Region$$Table$$Base                      0x080027cc   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x080027ec   Number         0  anon$$obj.o(Region$$Table)
+    LIS302DL_TIMEOUT_UserCallback            0x08002663   Thumb Code     4  main.o(.text)
+    main                                     0x08002675   Thumb Code    34  main.o(.text)
+    fputc                                    0x08002697   Thumb Code    60  main.o(.text)
+    EXTI0_IRQHandler                         0x080026d3   Thumb Code    70  main.o(.text)
+    EXTI1_IRQHandler                         0x08002719   Thumb Code    70  main.o(.text)
+    __aeabi_memset                           0x08002771   Thumb Code    14  memseta.o(.text)
+    __aeabi_memset4                          0x08002771   Thumb Code     0  memseta.o(.text)
+    __aeabi_memset8                          0x08002771   Thumb Code     0  memseta.o(.text)
+    __aeabi_memclr                           0x0800277f   Thumb Code     4  memseta.o(.text)
+    __aeabi_memclr4                          0x0800277f   Thumb Code     0  memseta.o(.text)
+    __aeabi_memclr8                          0x0800277f   Thumb Code     0  memseta.o(.text)
+    _memset$wrapper                          0x08002783   Thumb Code    18  memseta.o(.text)
+    __scatterload                            0x08002795   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x08002795   Thumb Code     0  init.o(.text)
+    __scatterload_copy                       0x080027b9   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x080027c7   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x080027c9   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    Region$$Table$$Base                      0x080027d8   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x080027f8   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x20000000   Data           4  system_stm32f4xx.o(.data)
     AHBPrescTable                            0x20000004   Data          16  system_stm32f4xx.o(.data)
     LIS302DLTimeout                          0x20000024   Data           4  stm32f4_discovery_lis302dl.o(.data)
     pxCurrentTCB                             0x20000028   Data           4  tasks.o(.data)
-    ClickReg                                 0x20000084   Data           1  main.o(.data)
-    XOffset                                  0x20000085   Data           1  main.o(.data)
-    YOffset                                  0x20000086   Data           1  main.o(.data)
-    read                                     0x20000087   Data           1  main.o(.data)
-    TimingDelay                              0x20000088   Data           4  main.o(.data)
-    __initial_sp                             0x20013158   Data           0  startup_stm32f4xx.o(STACK)
+    __initial_sp                             0x20013150   Data           0  startup_stm32f4xx.o(STACK)
 
 
 
@@ -551,22 +543,22 @@ Memory Map of the image
 
   Image Entry point : 0x08000189
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00002878, Max: 0x00100000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0000287c, Max: 0x00100000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x000027ec, Max: 0x00100000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x000027f8, Max: 0x00100000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x08000000   0x00000188   Data   RO          126    RESET               startup_stm32f4xx.o
-    0x08000188   0x00000000   Code   RO          568  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x08000188   0x00000004   Code   RO          577    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x0800018c   0x00000004   Code   RO          580    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x08000190   0x00000000   Code   RO          582    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x08000190   0x00000000   Code   RO          584    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x08000190   0x00000008   Code   RO          585    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x08000198   0x00000000   Code   RO          587    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x08000198   0x00000000   Code   RO          589    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x08000198   0x00000004   Code   RO          578    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x08000188   0x00000000   Code   RO          438  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x08000188   0x00000004   Code   RO          447    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x0800018c   0x00000004   Code   RO          450    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x08000190   0x00000000   Code   RO          452    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x08000190   0x00000000   Code   RO          454    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x08000190   0x00000008   Code   RO          455    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x08000198   0x00000000   Code   RO          457    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x08000198   0x00000000   Code   RO          459    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x08000198   0x00000004   Code   RO          448    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
     0x0800019c   0x000000ae   Code   RO          393    .emb_text           port.o
     0x0800024a   0x00000002   PAD
     0x0800024c   0x000000e4   Code   RO            2    .text               misc.o
@@ -576,23 +568,23 @@ Memory Map of the image
     0x080007b0   0x00000588   Code   RO          170    .text               stm32f4xx_rcc.o
     0x08000d38   0x0000008c   Code   RO          188    .text               stm32f4xx_syscfg.o
     0x08000dc4   0x000003c4   Code   RO          220    .text               stm32f4_discovery_lis302dl.o
-    0x08001188   0x000003f4   Code   RO          242    .text               stm32f4xx_spi.o
-    0x0800157c   0x0000011c   Code   RO          258    .text               stm32f4xx_exti.o
+    0x08001188   0x0000011c   Code   RO          242    .text               stm32f4xx_exti.o
+    0x080012a4   0x000003f4   Code   RO          258    .text               stm32f4xx_spi.o
     0x08001698   0x00000b20   Code   RO          322    .text               tasks.o
     0x080021b8   0x00000094   Code   RO          344    .text               list.o
     0x0800224c   0x00000124   Code   RO          378    .text               heap_2.o
     0x08002370   0x000001ac   Code   RO          394    .text               port.o
-    0x0800251c   0x00000248   Code   RO          412    .text               main.o
-    0x08002764   0x00000024   Code   RO          573    .text               mc_w.l(memseta.o)
-    0x08002788   0x00000024   Code   RO          591    .text               mc_w.l(init.o)
-    0x080027ac   0x0000000e   Code   RO          595    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x080027ba   0x00000002   Code   RO          596    i.__scatterload_null  mc_w.l(handlers.o)
-    0x080027bc   0x0000000e   Code   RO          597    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x080027ca   0x00000002   PAD
-    0x080027cc   0x00000020   Data   RO          593    Region$$Table       anon$$obj.o
+    0x0800251c   0x00000254   Code   RO          412    .text               main.o
+    0x08002770   0x00000024   Code   RO          443    .text               mc_w.l(memseta.o)
+    0x08002794   0x00000024   Code   RO          461    .text               mc_w.l(init.o)
+    0x080027b8   0x0000000e   Code   RO          465    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x080027c6   0x00000002   Code   RO          466    i.__scatterload_null  mc_w.l(handlers.o)
+    0x080027c8   0x0000000e   Code   RO          467    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x080027d6   0x00000002   PAD
+    0x080027d8   0x00000020   Data   RO          463    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00013158, Max: 0x00020000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00013150, Max: 0x00020000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -602,11 +594,10 @@ Memory Map of the image
     0x20000028   0x00000038   Data   RW          324    .data               tasks.o
     0x20000060   0x00000018   Data   RW          380    .data               heap_2.o
     0x20000078   0x0000000c   Data   RW          395    .data               port.o
-    0x20000084   0x00000008   Data   RW          413    .data               main.o
-    0x2000008c   0x000000c8   Zero   RW          323    .bss                tasks.o
-    0x20000154   0x00012c00   Zero   RW          379    .bss                heap_2.o
-    0x20012d54   0x00000004   PAD
-    0x20012d58   0x00000400   Zero   RW          124    STACK               startup_stm32f4xx.o
+    0x20000084   0x000000c8   Zero   RW          323    .bss                tasks.o
+    0x2000014c   0x00012c00   Zero   RW          379    .bss                heap_2.o
+    0x20012d4c   0x00000004   PAD
+    0x20012d50   0x00000400   Zero   RW          124    STACK               startup_stm32f4xx.o
 
 
 ==============================================================================
@@ -616,24 +607,24 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       292         26          0         24      76800       3240   heap_2.o
-       148          0          0          0          0       1906   list.o
-       584         32          0          8          0     245629   main.o
-       228         22          0          0          0     245109   misc.o
-       602         44          0         12          0       3502   port.o
-         0          0          0          0          0       7560   queue.o
-        36          8        392          0       1024        884   startup_stm32f4xx.o
-       964         18          0          4          0       9406   stm32f4_discovery_lis302dl.o
-       284         10          0          0          0       2419   stm32f4xx_exti.o
-       604         36          0          0          0       4185   stm32f4xx_gpio.o
-      1416         48          0         16          0      11079   stm32f4xx_rcc.o
-      1012         22          0          0          0       6885   stm32f4xx_spi.o
-       140         12          0          0          0       1723   stm32f4xx_syscfg.o
-       512         46          0         20          0       1947   system_stm32f4xx.o
-      2848        196          0         56        200      12654   tasks.o
+       292         26          0         24      76800       3276   heap_2.o
+       148          0          0          0          0       1926   list.o
+       596         18          0          0          0      26936   main.o
+       228         22          0          0          0     245197   misc.o
+       602         44          0         12          0       3530   port.o
+         0          0          0          0          0       7608   queue.o
+        36          8        392          0       1024        896   startup_stm32f4xx.o
+       964         18          0          4          0       9450   stm32f4_discovery_lis302dl.o
+       284         10          0          0          0       2443   stm32f4xx_exti.o
+       604         36          0          0          0       4209   stm32f4xx_gpio.o
+      1416         48          0         16          0      11111   stm32f4xx_rcc.o
+      1012         22          0          0          0       6909   stm32f4xx_spi.o
+       140         12          0          0          0       1735   stm32f4xx_syscfg.o
+       512         46          0         20          0       1979   system_stm32f4xx.o
+      2848        196          0         56        200      12686   tasks.o
 
     ----------------------------------------------------------------------
-      9672        520        424        140      78028     558128   Object Totals
+      9684        506        424        132      78028     339891   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          2          0          0          0          4          0   (incl. Padding)
 
@@ -673,15 +664,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      9796        536        424        140      78028     555004   Grand Totals
-      9796        536        424        140      78028     555004   ELF Image Totals
-      9796        536        424        140          0          0   ROM Totals
+      9808        522        424        132      78028     336667   Grand Totals
+      9808        522        424        132      78028     336667   ELF Image Totals
+      9808        522        424        132          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                10220 (   9.98kB)
-    Total RW  Size (RW Data + ZI Data)             78168 (  76.34kB)
-    Total ROM Size (Code + RO Data + RW Data)      10360 (  10.12kB)
+    Total RO  Size (Code + RO Data)                10232 (   9.99kB)
+    Total RW  Size (RW Data + ZI Data)             78160 (  76.33kB)
+    Total ROM Size (Code + RO Data + RW Data)      10364 (  10.12kB)
 
 ==============================================================================
 

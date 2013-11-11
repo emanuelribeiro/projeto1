@@ -35,14 +35,4 @@
 .\Output\main.o: .\STM32F407xx_Lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_usart.h
 .\Output\main.o: .\STM32F407xx_Lib\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_wwdg.h
 .\Output\main.o: .\STM32F407xx_Lib\STM32F4xx_StdPeriph_Driver\inc\misc.h
-.\Output\main.o: .\FreeRTOS\Source\include\FreeRTOS.h
-.\Output\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stddef.h
-.\Output\main.o: .\FreeRTOS\Source\include\projdefs.h
-.\Output\main.o: .\FreeRTOS\FreeRTOSConfig.h
-.\Output\main.o: .\FreeRTOS\Source\include\portable.h
-.\Output\main.o: .\FreeRTOS\Source\include\../../Source/portable/RVDS/ARM_CM4F/portmacro.h
-.\Output\main.o: .\FreeRTOS\Source\include\mpu_wrappers.h
-.\Output\main.o: .\FreeRTOS\Source\include\task.h
-.\Output\main.o: .\FreeRTOS\Source\include\list.h
-.\Output\main.o: .\FreeRTOS\Source\include\queue.h
 .\Output\main.o: .\STM32F407xx_Lib\STM32F4-Discovery\stm32f4_discovery_lis302dl.h
