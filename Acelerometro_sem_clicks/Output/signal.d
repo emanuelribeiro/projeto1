@@ -1,0 +1,9 @@
+.\Output\signal.o: signal.c
+.\Output\signal.o: STM32F407xx_Lib\CMSIS\Include\arm_math.h
+.\Output\signal.o: STM32F407xx_Lib\CMSIS\Include\core_cm4.h
+.\Output\signal.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\Output\signal.o: .\STM32F407xx_Lib\CMSIS\Include\core_cmInstr.h
+.\Output\signal.o: .\STM32F407xx_Lib\CMSIS\Include\core_cmFunc.h
+.\Output\signal.o: .\STM32F407xx_Lib\CMSIS\Include\core_cm4_simd.h
+.\Output\signal.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\Output\signal.o: C:\Keil\ARM\ARMCC\bin\..\include\math.h
