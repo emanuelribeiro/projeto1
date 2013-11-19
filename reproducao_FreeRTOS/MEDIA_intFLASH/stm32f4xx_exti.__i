@@ -1,0 +1,5 @@
+-c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I.\STM32F407xx_Lib\CMSIS\Include -I.\STM32F407xx_Lib\CMSIS\ST\STM32F4xx\Include -I.\STM32F407xx_Lib\STM32F4xx_StdPeriph_Driver\inc -I.\STM32F407xx_Lib\STM32F4-Discovery -I.\inc -I.\FreeRTOS -I.\FreeRTOS\Source\include 
+-I C:\Keil\ARM\RV31\INC 
+-I C:\Keil\ARM\CMSIS\Include 
+-I C:\Keil\ARM\Inc\ST\STM32F4xx 
+-DUSE_STDPERIPH_DRIVER -DSTM32F4XX -DMEDIA_IntFLASH -DUSE_DEFAULT_TIMEOUT_CALLBACK -DRVDS_ARMCM4F -o ".\MEDIA_intFLASH\stm32f4xx_exti.o" --omf_browse ".\MEDIA_intFLASH\stm32f4xx_exti.crf" --depend ".\MEDIA_intFLASH\stm32f4xx_exti.d" "STM32F407xx_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.c"

@@ -1,0 +1,46 @@
+*** Creating Trace Output File '.\MEDIA_intFLASH\MEDIA_intFLASH.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '".\media_intflash\audio_sample.o"'
+### List of Objects: adding '".\media_intflash\main.o"'
+### List of Objects: adding '".\media_intflash\stm32f4xx_it.o"'
+### List of Objects: adding '".\media_intflash\system_stm32f4xx.o"'
+### List of Objects: adding '".\media_intflash\waveplayer.o"'
+### List of Objects: adding '".\media_intflash\stm32f4_discovery.o"'
+### List of Objects: adding '".\media_intflash\stm32f4_discovery_audio_codec.o"'
+### List of Objects: adding '".\STM32F407xx_Lib\STM32F4-Discovery\libPDMFilter_Keil.lib"'
+### List of Objects: adding '".\media_intflash\misc.o"'
+### List of Objects: adding '".\media_intflash\stm32f4xx_syscfg.o"'
+### List of Objects: adding '".\media_intflash\stm32f4xx_adc.o"'
+### List of Objects: adding '".\media_intflash\stm32f4xx_dac.o"'
+### List of Objects: adding '".\media_intflash\stm32f4xx_dma.o"'
+### List of Objects: adding '".\media_intflash\stm32f4xx_exti.o"'
+### List of Objects: adding '".\media_intflash\stm32f4xx_flash.o"'
+### List of Objects: adding '".\media_intflash\stm32f4xx_gpio.o"'
+### List of Objects: adding '".\media_intflash\stm32f4xx_i2c.o"'
+### List of Objects: adding '".\media_intflash\stm32f4xx_rcc.o"'
+### List of Objects: adding '".\media_intflash\stm32f4xx_spi.o"'
+### List of Objects: adding '".\media_intflash\stm32f4xx_tim.o"'
+### List of Objects: adding '".\media_intflash\startup_stm32f4xx.o"'
+### List of Objects: adding '".\media_intflash\croutine.o"'
+### List of Objects: adding '".\media_intflash\list.o"'
+### List of Objects: adding '".\media_intflash\queue.o"'
+### List of Objects: adding '".\media_intflash\tasks.o"'
+### List of Objects: adding '".\media_intflash\port.o"'
+### List of Objects: adding '".\media_intflash\heap_2.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M4.fp ".\media_intflash\audio_sample.o" ".\media_intflash\main.o" ".\media_intflash\stm32f4xx_it.o" ".\media_intflash\system_stm32f4xx.o" ".\media_intflash\waveplayer.o" ".\media_intflash\stm32f4_discovery.o" ".\media_intflash\stm32f4_discovery_audio_codec.o" "C:\Users\Emanuel Ribeiro\Documents\projeto1\reproducao_FreeRTOS_manapula\STM32F407xx_Lib\STM32F4-Discovery\libPDMFilter_Keil.lib" ".\media_intflash\misc.o" ".\media_intflash\stm32f4xx_syscfg.o" ".\media_intflash\stm32f4xx_adc.o" ".\media_intflash\stm32f4xx_dac.o" ".\media_intflash\stm32f4xx_dma.o" ".\media_intflash\stm32f4xx_exti.o" ".\media_intflash\stm32f4xx_flash.o" ".\media_intflash\stm32f4xx_gpio.o" ".\media_intflash\stm32f4xx_i2c.o" ".\media_intflash\stm32f4xx_rcc.o" ".\media_intflash\stm32f4xx_spi.o" ".\media_intflash\stm32f4xx_tim.o" ".\media_intflash\startup_stm32f4xx.o" ".\media_intflash\croutine.o" ".\media_intflash\list.o" ".\media_intflash\queue.o" ".\media_intflash\tasks.o" ".\media_intflash\port.o" ".\media_intflash\heap_2.o" 
+--library_type=microlib --strict --scatter ".\MEDIA_intFLASH\MEDIA_intFLASH.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\MEDIA_intFLASH.map" -o .\MEDIA_intFLASH\MEDIA_intFLASH.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: '.\MEDIA_intFLASH\MEDIA_intFLASH.axf'
+### ADS-LD Command File: '.\MEDIA_intFLASH\MEDIA_intFLASH.lnp'
+### Checking for dirty Components...
+### Creating CmdFile '.\MEDIA_intFLASH\MEDIA_intFLASH.lnp', Handle=0x00000B9C
+### Writing '.lnp' file
+### ADS-LD Command file '.\MEDIA_intFLASH\MEDIA_intFLASH.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.
